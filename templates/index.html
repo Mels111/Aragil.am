@@ -1,5 +1,54 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head><meta charset="UTF-8"><title>Главная</title></head>
-<body><h1>Добро пожаловать в Aragil.am!</h1></body>
+<head>
+  <meta charset="UTF-8">
+  <title>Каталог - Aragil.am</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script defer src="/static/js/lang.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo"><img src="/static/img/logo.png" alt="logo"></div>
+  <div class="lang-toggle">
+    <button onclick="setLang('ru')">🇷🇺</button>
+    <button onclick="setLang('en')">🇬🇧</button>
+  </div>
+</header>
+<main>
+  <div class="catalog-container">
+    <aside class="sidebar">
+<div class="category" data-ru="Одежда" data-en="Одежда">Одежда</div>
+<div class="category" data-ru="Обувь" data-en="Обувь">Обувь</div>
+<div class="category" data-ru="Дом и сад" data-en="Дом и сад">Дом и сад</div>
+<div class="category" data-ru="Электроника" data-en="Электроника">Электроника</div>
+    </aside>
+    <section class="subcategories" id="subcat-box">
+      <h2 id="subcat-title">Подкатегории</h2>
+      <ul id="subcat-list">
+        <li>Наведи на категорию слева</li>
+      </ul>
+    </section>
+  </div>
+</main>
+<script>
+const data = {"Одежда": ["Мужская одежда", "Женская одежда", "Детская одежда"], "Обувь": ["Мужская обувь", "Женская обувь", "Спортивная обувь"], "Дом и сад": ["Мебель", "Текстиль", "Кухонные принадлежности", "Садовый инвентарь"], "Электроника": ["Смартфоны", "Телевизоры", "Ноутбуки"]};
+const items = document.querySelectorAll('.category');
+const list = document.getElementById('subcat-list');
+const title = document.getElementById('subcat-title');
+
+items.forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    const name = el.dataset.ru;
+    title.textContent = name;
+    list.innerHTML = "";
+    data[name].forEach(sub => {
+      const li = document.createElement("li");
+      li.textContent = sub;
+      list.appendChild(li);
+    });
+  });
+});
+</script>
+</body>
 </html>
