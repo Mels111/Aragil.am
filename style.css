@@ -1,26 +1,65 @@
 
 body {
-    font-family: Arial, sans-serif;
-    background: white;
-    color: #3d0000;
-    margin: 0;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #ffffff;
+  color: #000000;
 }
-header {
-    background-color: #800000;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #800000;
+  padding: 10px 20px;
+  color: white;
 }
-.logo {
-    height: 50px;
-    margin-right: 20px;
+
+.logo img {
+  height: 40px;
 }
-nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
+
+.lang-toggle button {
+  background: white;
+  color: #800000;
+  border: none;
+  padding: 5px 8px;
+  margin-left: 5px;
+  border-radius: 4px;
+  cursor: pointer;
 }
-main {
-    padding: 20px;
+
+.catalog-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 220px;
+  background: #f9f9f9;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+}
+
+.category {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.category:hover {
+  background-color: #e0e0e0;
+}
+
+.subcategories {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.subcategories ul {
+  list-style: none;
+  padding: 0;
+}
+
+.subcategories li {
+  padding: 5px 0;
 }
